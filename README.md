@@ -4,7 +4,7 @@ Fork of [EzApi](http://sqlsrvintegrationsrv.codeplex.com/releases/view/21238) ad
 
 ## Installation and usage
 
-Just compile with your VS and include the output `dll` on your project
+Just compile with your VS and include the output `EzApi.dll` on your project
 
 ## Contributing
 
@@ -16,12 +16,14 @@ Just compile with your VS and include the output `dll` on your project
 
 ## Credits
 
-Credits are for Microsoft. =)
+Credits are for Microsoft =)
 
 ## License
 
 The project inherits the Microsoft license: 
 
 Copyright © Microsoft Corporation.  All Rights Reserved.
+
 This code released under the terms of the 
+
 Microsoft Public License (MS-PL, http://opensource.org/licenses/ms-pl.html.)
