@@ -669,7 +669,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [ExecID("SSIS.ExecutePackageTask.3")]
+    [ExecID("Microsoft.ExecutePackageTask")]
     public class EzExecPackage : EzTask
     {
         public EzExecPackage(EzContainer parent) : base(parent) { }
@@ -805,7 +805,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [ExecID("SSIS.Pipeline.3")]
+    [ExecID("Microsoft.Pipeline")]
     public class EzDataFlow : EzTask
     {
         internal List<EzComponent> m_components = new List<EzComponent>();
