@@ -538,6 +538,12 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             Comp.SetOutputProperty(Meta.OutputCollection[outputIndex].ID, propName, propValue);
         }
 
+        //Paul Rizza - https://blogs.msdn.microsoft.com/paulrizza/2014/07/14/ssis-2012-ezapi-basic-intro/
+        public void SetOutputSorted(int outputIndex, bool IsSorted)
+        {
+            m_meta.OutputCollection[outputIndex].IsSorted = IsSorted;
+        }
+        
         public void SetOutputColumnProperty(int outputIndex, string columnName, string propertyName, object propertyValue, bool initMeta)
         {
             if (!OutputColumnExists(outputIndex, columnName))
@@ -1031,6 +1037,19 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             } 
         }
 
+        //Paul Rizza - https://blogs.msdn.microsoft.com/paulrizza/2014/07/14/ssis-2012-ezapi-basic-intro/
+        public string SQLCommandVariable
+        {
+            get { return (string)m_meta.CustomPropertyCollection["SqlCommandVariable"].Value; }
+            set 
+            {
+                if (AccessMode != AccessMode.AM_SQLCOMMAND_VARIABLE) { m_comp.SetComponentProperty("AccessMode", AccessMode.AM_SQLCOMMAND_VARIABLE.GetHashCode()); }
+                m_comp.SetComponentProperty("SqlCommandVariable", this.Parent.Variables[value].QualifiedName); 
+                ReinitializeMetaData(); 
+            } 
+        }
+
+
         public string DataSourceVariable
         {
             get { return (string)m_meta.CustomPropertyCollection["OpenRowsetVariable"].Value; }
@@ -1044,7 +1063,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{165A526D-D5DE-47FF-96A6-F8274C19826B}")]
+    [CompID("Microsoft.OLEDBSource")]
     public class EzOleDbSource : EzOleDbAdapter
     {
         public EzOleDbSource(EzDataFlow dataFlow) : base(dataFlow)	{ }
@@ -1306,6 +1325,22 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public EzMultiCast(EzDataFlow parent, IDTSComponentMetaData100 meta) : base(parent, meta) { }  
     }
 
+    //DEMO - Paul Rizza - https://blogs.msdn.microsoft.com/paulrizza/2014/07/14/ssis-2012-ezapi-basic-intro/
+    [CompID("{150E6007-7C6A-4CC3-8FF3-FC73783A972E}")]
+    public class EzRowCount : EzComponent
+    {
+
+        public EzRowCount(EzDataFlow dataFlow) : base(dataFlow) { }
+        public EzRowCount(EzDataFlow parent, IDTSComponentMetaData100 meta) : base(parent, meta) { }
+
+        public string VariableName
+        {
+            get { return (string)m_meta.CustomPropertyCollection["VariableName"].Value; }
+            set { m_comp.SetComponentProperty("VariableName", value); }
+        }
+
+    }
+
     [CompID("{49928E82-9C4E-49F0-AABE-3812B82707EC}")]
     public class EzDerivedColumn : EzComponent
     {
@@ -1317,6 +1352,30 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             base.ReinitializeMetaDataNoCast();
             LinkAllInputsToOutputs();
         }
+
+        //Paul Rizza - https://blogs.msdn.microsoft.com/paulrizza/2014/07/14/ssis-2012-ezapi-basic-intro/
+        //rpr to cleanup cols for derived column input error
+        public void RemoveInputCol(string colName)
+        {
+            IDTSInputColumnCollection100 cols = Meta.InputCollection[0].InputColumnCollection;
+
+            foreach (IDTSInputColumn100 c in cols)
+            {
+                /*
+                if (c.UsageType == DTSUsageType.UT_READONLY)
+                {
+                    Meta.InputCollection[0].InputColumnCollection.RemoveObjectByID(c.ID);
+                }
+                */
+                if (string.Compare(c.Name, colName, StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    Meta.InputCollection[0].InputColumnCollection.RemoveObjectByID(c.ID);
+                    break;
+                }
+                
+            }
+        }
+        
 
         private ColumnCustomPropertyIndexer<string> m_exprIndexer;
         public ColumnCustomPropertyIndexer<string> Expression 
@@ -2732,7 +2791,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         Inner = 2
     }
 
-    [CompID("{14D43A4F-D7BD-489D-829E-6DE35750CFE4}")]
+    [CompID("Microsoft.MergeJoin")]
     public class EzMergeJoin : EzComponent
     {
         public EzMergeJoin(EzDataFlow dataFlow) : base(dataFlow) { }

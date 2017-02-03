@@ -605,7 +605,19 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
 
         public DtsErrors Errors { get { return (m_exec as Package).Errors; } }
-	}
+
+        //Paul Rizza - https://blogs.msdn.microsoft.com/paulrizza/2014/07/14/ssis-2012-ezapi-basic-intro/
+        public Microsoft.SqlServer.Dts.Runtime.Configurations Configurations
+        {
+            get { return (m_exec as Package).Configurations; }
+        }
+
+        public bool EnableConfigurations
+        {
+            get { return (m_exec as Package).EnableConfigurations; }
+            set { (m_exec as Package).EnableConfigurations = value; }
+        }
+    }
 
     public class EzExpressionIndexer
     {
@@ -722,7 +734,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
     }
 
 
-    [ExecID("Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
+    [ExecID("Microsoft.ExecuteSQLTask")]
     public class EzExecSqlTask : EzTask
     {
         public EzExecSqlTask(EzContainer parent) : base(parent) { InitializeTask(); }
