@@ -420,6 +420,39 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         ForEachSMOEnumerator = 6
     }
 
+    /// <summary>
+    /// Enumeration of OLE-DB types, used when mapping OLE-DB parameters.
+    /// Adapted from:
+    /// http://www.sqlis.com/sqlis/post/Execute-SQL-Task-in-Code.aspx
+    /// </summary>
+    public enum OleDBDataTypes
+    {
+        BYTE = 17,
+        CURRENCY = 6,
+        DATE = 7,
+        DBDATE = 133,
+        DBTIME = 134,
+        DBTIMESTAMP = 135,
+        DB_VARNUMERIC = 139,
+        DECIMAL = 14,
+        DOUBLE = 5,
+        FILETIME = 64,
+        FLOAT = 4,
+        GUID = 72,
+        LARGE_INTEGER = 20,
+        LONG = 3,
+        NULL = 1,
+        NUMERIC = 131,
+        NVARCHAR = 130,
+        SHORT = 2,
+        SIGNEDCHAR = 16,
+        ULARGE_INTEGER = 21,
+        ULONG = 19,
+        USHORT = 18,
+        VARCHAR = 129,
+        VARIANT_BOOL = 11
+    }
+
     [ExecID("STOCK:FOREACHLOOP")]
     public class EzForEachLoop : EzContainer
     {
