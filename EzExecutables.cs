@@ -815,6 +815,11 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             get { return (host.InnerObject as ExecuteSQLTask).ParameterBindings; }
         }
+
+        public IDTSResultBindings ResultBindings
+        {
+            get { return (host.InnerObject as ExecuteSQLTask).ResultSetBindings; }
+        }
     }
 
     [ExecID("Microsoft.Pipeline")]
