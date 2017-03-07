@@ -1341,7 +1341,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
 
     }
 
-    [CompID("{49928E82-9C4E-49F0-AABE-3812B82707EC}")]
+    [CompID("Microsoft.DerivedColumn")]
     public class EzDerivedColumn : EzComponent
     {
         public EzDerivedColumn(EzDataFlow dataFlow) : base(dataFlow) { }
