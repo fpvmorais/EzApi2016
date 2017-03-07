@@ -1070,7 +1070,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public EzOleDbSource(EzDataFlow parent, IDTSComponentMetaData100 meta) : base(parent, meta) { }
     }
 
-    [CompID("{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}")]
+    [CompID("Microsoft.OLEDBDestination")]
     public class EzOleDbDestination : EzOleDbAdapter
     {
         public EzOleDbDestination(EzDataFlow dataFlow) : base(dataFlow) { }
