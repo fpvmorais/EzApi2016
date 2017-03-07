@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Microsoft.SqlServer.Dts.Runtime;
-using RunWrap=Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using RunWrap = Microsoft.SqlServer.Dts.Runtime.Wrapper;
 using Microsoft.SqlServer.Dts.Pipeline;
 using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
 using Microsoft.SqlServer.Dts.Tasks.ExecutePackageTask;
@@ -19,10 +19,10 @@ using System.Reflection;
 using System.IO;
 using System.Globalization;
 using System.Data.SqlClient;
-using SMO=Microsoft.SqlServer.Management.Smo;
+using SMO = Microsoft.SqlServer.Management.Smo;
 using System.Diagnostics;
 using Microsoft.SqlServer.Dts.Tasks.FileSystemTask;
-	
+using Microsoft.SqlServer.Dts.Tasks.ExpressionTask;
 
 namespace Microsoft.SqlServer.SSIS.EzAPI
 {
@@ -722,6 +722,20 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             } 
         }
     }
+
+    [ExecID("Microsoft.ExpressionTask")]
+    public class EzExpressionTask : EzTask
+    {
+        public EzExpressionTask(EzContainer parent) : base(parent) { }
+
+        public EzExpressionTask(EzContainer parent, TaskHost task) : base(parent, task) { }
+
+        public void SetExpression(string expression)
+        {
+            host.Properties["Expression"].SetValue(host, expression);
+        }
+    }
+
 
     [ExecID("Microsoft.ExecutePackageTask")]
     public class EzExecPackage : EzTask
