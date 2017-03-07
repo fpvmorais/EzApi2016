@@ -464,7 +464,16 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             get { return (m_exec as ForEachLoop).ForEachEnumerator; }
             set { (m_exec as ForEachLoop).ForEachEnumerator = value; }
         }
-        
+
+        /*
+         * Expose variables: http://stackoverflow.com/a/15617882
+         */
+        public ForEachVariableMappings VariableMappings
+        {
+            get { return (m_exec as ForEachLoop).VariableMappings; }
+
+        }
+
         /*
          * Returns the string representation of the given type of For Each enumerator
          */
