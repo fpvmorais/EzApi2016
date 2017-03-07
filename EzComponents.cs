@@ -1326,7 +1326,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
     }
 
     //DEMO - Paul Rizza - https://blogs.msdn.microsoft.com/paulrizza/2014/07/14/ssis-2012-ezapi-basic-intro/
-    [CompID("{150E6007-7C6A-4CC3-8FF3-FC73783A972E}")]
+    [CompID("Microsoft.RowCount")]
     public class EzRowCount : EzComponent
     {
 
