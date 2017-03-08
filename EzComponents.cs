@@ -1347,10 +1347,41 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public EzDerivedColumn(EzDataFlow dataFlow) : base(dataFlow) { }
         public EzDerivedColumn(EzDataFlow parent, IDTSComponentMetaData100 meta) : base(parent, meta) { }
 
+        private PassThroughIndexer m_passThrough;
+        public PassThroughIndexer PassThrough
+        {
+            get
+            {
+                if (m_passThrough == null)
+                    m_passThrough = new PassThroughIndexer(this);
+                return m_passThrough;
+            }
+        }
+
         public override void ReinitializeMetaDataNoCast()
         {
-            base.ReinitializeMetaDataNoCast();
-            LinkAllInputsToOutputs();
+            try
+            {
+                if (Meta.InputCollection[0].InputColumnCollection.Count == 0)
+                {
+                    base.ReinitializeMetaDataNoCast();
+                    LinkAllInputsToOutputs();
+                    return;
+                }
+
+                Dictionary<string, bool> cols = new Dictionary<string, bool>();
+                foreach (IDTSInputColumn100 c in Meta.InputCollection[0].InputColumnCollection)
+                    cols.Add(c.Name, PassThrough[c.Name]);
+                base.ReinitializeMetaDataNoCast();
+                foreach (IDTSInputColumn100 c in Meta.InputCollection[0].InputColumnCollection)
+                {
+                    if (cols.ContainsKey(c.Name))
+                        SetUsageType(0, c.Name, cols[c.Name] ? DTSUsageType.UT_READONLY : DTSUsageType.UT_IGNORED, false);
+                    else
+                        SetUsageType(0, c.Name, DTSUsageType.UT_IGNORED, false);
+                }
+            }
+            catch { }
         }
 
         //Paul Rizza - https://blogs.msdn.microsoft.com/paulrizza/2014/07/14/ssis-2012-ezapi-basic-intro/
