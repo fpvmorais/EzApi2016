@@ -4,7 +4,11 @@ Fork of [EzApi](http://sqlsrvintegrationsrv.codeplex.com/releases/view/21238) ad
 
 ## Installation and usage
 
-Just compile with your VS and include the output `EzApi.dll` on your project
+The preferred way is to [Nuget](https://www.nuget.org/packages/EzApi/)
+
+`PM> Install-Package EzApi` via [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)
+
+Alternatively you can compile include the output `EzApi.dll` on your project, or include this project directly in your solution.
 
 ## Contributing
 
