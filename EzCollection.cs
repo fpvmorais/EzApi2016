@@ -3,17 +3,9 @@
 // Microsoft Public License (MS-PL, http://opensource.org/licenses/ms-pl.html.)
 
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Microsoft.SqlServer.Dts.Runtime;
-using RunWrap = Microsoft.SqlServer.Dts.Runtime.Wrapper;
-using Microsoft.SqlServer.Dts.Pipeline;
-using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
-using Microsoft.SqlServer.Dts.Tasks.ExecutePackageTask;
-using System.Reflection;
-using System.IO;
-using System.Globalization;
+using System;
+using System.Collections.Generic;
 
 namespace Microsoft.SqlServer.SSIS.EzAPI
 {

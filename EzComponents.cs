@@ -3,18 +3,18 @@
 // Microsoft Public License (MS-PL, http://opensource.org/licenses/ms-pl.html.)
 
 
+using Microsoft.DataTransformationServices.Controls;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using Microsoft.SqlServer.VSTAHosting;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using System.Runtime.Serialization;
-using Microsoft.SqlServer.Dts.Runtime;
-using Microsoft.SqlServer.Dts.Runtime.Wrapper;
-using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
-using Microsoft.SqlServer.Dts.Pipeline;
-using Microsoft.DataTransformationServices.Controls;
-using Microsoft.SqlServer.VSTAHosting;
 
 namespace Microsoft.SqlServer.SSIS.EzAPI
 {
@@ -237,7 +237,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
                         EzComponent curComp = cur as EzComponent;
                         if (curComp == null)
                             continue;
-                        if (curComp.ID == this.ID && this.Parent.ID == curComp.Parent.ID)
+                        if (curComp.ID == ID && Parent.ID == curComp.Parent.ID)
                             return mi.Name;
                     }
                     p = p.Parent;
@@ -1044,7 +1044,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             set 
             {
                 if (AccessMode != AccessMode.AM_SQLCOMMAND_VARIABLE) { m_comp.SetComponentProperty("AccessMode", AccessMode.AM_SQLCOMMAND_VARIABLE.GetHashCode()); }
-                m_comp.SetComponentProperty("SqlCommandVariable", this.Parent.Variables[value].QualifiedName); 
+                m_comp.SetComponentProperty("SqlCommandVariable", Parent.Variables[value].QualifiedName); 
                 ReinitializeMetaData(); 
             } 
         }

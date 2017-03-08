@@ -3,26 +3,21 @@
 // Microsoft Public License (MS-PL, http://opensource.org/licenses/ms-pl.html.)
 
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
-using Microsoft.SqlServer.Dts.Runtime;
-using RunWrap = Microsoft.SqlServer.Dts.Runtime.Wrapper;
-using Microsoft.SqlServer.Dts.Pipeline;
 using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime;
 using Microsoft.SqlServer.Dts.Tasks.ExecutePackageTask;
 using Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask;
-using Microsoft.SqlServer.Dts.Tasks.TransferDatabaseTask;
-using System.Reflection;
-using System.IO;
-using System.Globalization;
-using System.Data.SqlClient;
-using SMO = Microsoft.SqlServer.Management.Smo;
-using System.Diagnostics;
 using Microsoft.SqlServer.Dts.Tasks.FileSystemTask;
-using Microsoft.SqlServer.Dts.Tasks.ExpressionTask;
+using Microsoft.SqlServer.Dts.Tasks.TransferDatabaseTask;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Reflection;
+using System.Runtime.Serialization;
+using SMO = Microsoft.SqlServer.Management.Smo;
 
 namespace Microsoft.SqlServer.SSIS.EzAPI
 {
@@ -633,7 +628,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Package p = new Package();
             p.LoadFromXML(xml, events);
-            this.Assign(null, p);
+            Assign(null, p);
         }
 
         public void LoadFromFile(string fileName)

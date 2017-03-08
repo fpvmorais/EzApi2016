@@ -131,7 +131,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
                     EzConnectionManager cur = mi.GetValue(Parent) as EzConnectionManager;
                     if (cur == null)
                         continue;
-                    if (cur.ID == this.ID)
+                    if (cur.ID == ID)
                         return mi.Name;
                 }
                 return null;

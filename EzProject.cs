@@ -1,8 +1,7 @@
-﻿using System;
-using System.IO;
-using Microsoft.SqlServer.Dts.Runtime;
+﻿using Microsoft.SqlServer.Dts.Runtime;
+using System;
 using System.Diagnostics;
-using System.Collections.Generic;
+using System.IO;
 
 namespace Microsoft.SqlServer.SSIS.EzAPI
 {
@@ -39,7 +38,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             get
             {
-                return this.Project.PackageItems;
+                return Project.PackageItems;
             }
         }
 
@@ -50,7 +49,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             get
             {
-                return this.Project.ConnectionManagerItems;
+                return Project.ConnectionManagerItems;
             }
         }
 
@@ -61,7 +60,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             get
             {
-                return this.Project.Parameters;
+                return Project.Parameters;
             }
         }
 
@@ -72,7 +71,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             set
             {
-                this.Project.Password = value;
+                Project.Password = value;
             }
         }
 
@@ -81,8 +80,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public DateTimeOffset CreationDate
         {
-            get { return this.Project.CreationDate; }
-            set { this.Project.CreationDate = value; }
+            get { return Project.CreationDate; }
+            set { Project.CreationDate = value; }
         }
 
         /// <summary>
@@ -90,8 +89,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public string CreatorName
         {
-            get { return this.Project.CreatorName; }
-            set { this.Project.CreatorName = value; }
+            get { return Project.CreatorName; }
+            set { Project.CreatorName = value; }
         }
 
         /// <summary>
@@ -99,8 +98,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public string Description
         {
-            get { return this.Project.Description; }
-            set { this.Project.Description = value; }
+            get { return Project.Description; }
+            set { Project.Description = value; }
         }
 
         /// <summary>
@@ -108,7 +107,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public string ID
         {
-            get { return this.Project.ID; }
+            get { return Project.ID; }
         }
 
         /// <summary>
@@ -116,8 +115,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public string Name
         {
-            get { return this.Project.Name; }
-            set { this.Project.Name = value; }
+            get { return Project.Name; }
+            set { Project.Name = value; }
         }
 
         /// <summary>
@@ -125,8 +124,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public DTSProtectionLevel ProtectionLevel
         {
-            get { return this.Project.ProtectionLevel; }
-            set { this.Project.ProtectionLevel = value; }
+            get { return Project.ProtectionLevel; }
+            set { Project.ProtectionLevel = value; }
         }
 
         /// <summary>
@@ -134,8 +133,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public int VersionBuild
         {
-            get { return this.Project.VersionBuild; }
-            set { this.Project.VersionBuild = value; }
+            get { return Project.VersionBuild; }
+            set { Project.VersionBuild = value; }
         }
 
         /// <summary>
@@ -143,8 +142,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public string VersionComments
         {
-            get { return this.Project.VersionComments; }
-            set { this.Project.VersionComments = value; }
+            get { return Project.VersionComments; }
+            set { Project.VersionComments = value; }
         }
 
         /// <summary>
@@ -152,8 +151,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public int VersionMajor
         {
-            get { return this.Project.VersionMajor; }
-            set { this.Project.VersionMajor = value; }
+            get { return Project.VersionMajor; }
+            set { Project.VersionMajor = value; }
         }
 
         /// <summary>
@@ -161,8 +160,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public int VersionMinor
         {
-            get { return this.Project.VersionMinor; }
-            set { this.Project.VersionMinor = value; }
+            get { return Project.VersionMinor; }
+            set { Project.VersionMinor = value; }
         }
 
         #endregion
@@ -170,12 +169,12 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         #region constructor & operator override
         public EzProject()
         {
-            this.m_project = Project.CreateProject();
+            m_project = Project.CreateProject();
         }
 
         public EzProject(string projectfile)
         {
-            this.m_project = Project.CreateProject(projectfile);
+            m_project = Project.CreateProject(projectfile);
         }
 
         /// <summary>
@@ -186,11 +185,11 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             if (null == project)
             {
-                this.m_project = Project.CreateProject();
+                m_project = Project.CreateProject();
             }
             else
             {
-                this.m_project = project;
+                m_project = project;
             }
         }
 
@@ -236,7 +235,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(null != package, @"The package should not be nullable.");
             string packageStreamName = package.Name + ".dtsx";
-            this.Project.PackageItems.Add((Package)package, packageStreamName);
+            Project.PackageItems.Add((Package)package, packageStreamName);
             return packageStreamName;
         }
 
@@ -248,7 +247,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public string AddPackage(Package package)
         {
             Debug.Assert(null != package, @"The package should not be nullable.");
-            this.Project.PackageItems.Add(package, package.Name + ".dtsx");
+            Project.PackageItems.Add(package, package.Name + ".dtsx");
             return package.Name;
         }
 
@@ -263,7 +262,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             Debug.Assert(null != package, @"The package should not be nullable.");
             Debug.Assert(!string.IsNullOrEmpty(streamname), @"The stream name should not be nullable.");
 
-            this.Project.PackageItems.Add(package, streamname);
+            Project.PackageItems.Add(package, streamname);
             return streamname;
         }
 
@@ -280,7 +279,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
 
             try
             {
-                this.Project.PackageItems.Insert(index, package, package.Name);
+                Project.PackageItems.Insert(index, package, package.Name);
                 return package.Name;
             }
             catch (Exception)
@@ -297,7 +296,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(index > -1, @"The package index must be greater than or equal to 0.");
 
-            this.Project.PackageItems.RemoveAt(index);
+            Project.PackageItems.RemoveAt(index);
         }
 
         /// <summary>
@@ -308,7 +307,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(!string.IsNullOrEmpty(packagename), @"The stream name should not be nullable.");
 
-            this.Project.PackageItems.Remove(packagename);
+            Project.PackageItems.Remove(packagename);
         }
 
         /// <summary>
@@ -321,7 +320,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(null != connection, @"The package should not be nullable.");
             string connectionStreamName = connection.Name + ".conmgr";
-            ConnectionManagerItem cmi = this.Project.ConnectionManagerItems.Add(connection.GetConnMgrID(), connectionStreamName);
+            ConnectionManagerItem cmi = Project.ConnectionManagerItems.Add(connection.GetConnMgrID(), connectionStreamName);
             return cmi.ConnectionManager;
         }
 
@@ -334,7 +333,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(null != connection, @"The connection should not be nullable.");
             string connectionStreamName = connection.Name + ".conmgr";
-            ConnectionManagerItem cmi = this.Project.ConnectionManagerItems.Add(connection.CreationName, connectionStreamName);
+            ConnectionManagerItem cmi = Project.ConnectionManagerItems.Add(connection.CreationName, connectionStreamName);
             return cmi.ConnectionManager;
         }
 
@@ -349,7 +348,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             Debug.Assert(null != connection, @"The connection should not be nullable.");
             Debug.Assert(!string.IsNullOrEmpty(streamname), @"The stream name should not be nullable.");
 
-            ConnectionManagerItem cmi = this.Project.ConnectionManagerItems.Add(connection.CreationName, streamname);
+            ConnectionManagerItem cmi = Project.ConnectionManagerItems.Add(connection.CreationName, streamname);
             return cmi.ConnectionManager;
         }
 
@@ -363,7 +362,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(index > -1, @"The connection index must be greater than or equal to 0.");
 
-            this.Project.ConnectionManagerItems.RemoveAt(index);
+            Project.ConnectionManagerItems.RemoveAt(index);
         }
 
         /// <summary>
@@ -374,7 +373,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(!string.IsNullOrEmpty(connectionname), @"The connection name should not be nullable.");
 
-            this.Project.ConnectionManagerItems.Remove(connectionname);
+            Project.ConnectionManagerItems.Remove(connectionname);
         }
 
         /// <summary>
@@ -386,7 +385,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(!string.IsNullOrEmpty(name), @"The parameter name should not be nullable.");
 
-            return this.Parameters.Add(name, type);
+            return Parameters.Add(name, type);
         }
 
         /// <summary>
@@ -403,7 +402,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(!string.IsNullOrEmpty(name), @"The parameter name should not be nullable.");
 
-            Parameter param = this.Parameters.Add(name, type);
+            Parameter param = Parameters.Add(name, type);
             param.Required = required;
             param.Sensitive = sensitive;
             param.Value = value;
@@ -423,9 +422,9 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             Debug.Assert(!string.IsNullOrEmpty(pkgStreamName), @"The package stream name should not be nullable.");
 
             //if pacakge exists, add the parameter, else throw exception
-            if (this.PackageItems.IndexOf(pkgStreamName) > -1)
+            if (PackageItems.IndexOf(pkgStreamName) > -1)
             {
-                Parameter param = this.PackageItems[pkgStreamName].Package.Parameters.Add(name, type);
+                Parameter param = PackageItems[pkgStreamName].Package.Parameters.Add(name, type);
                 return param;
             }
             else
@@ -451,9 +450,9 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             Debug.Assert(!string.IsNullOrEmpty(pkgStreamName), @"The package stream name should not be nullable.");
 
             //if pacakge exists, add the parameter, else throw exception
-            if (this.PackageItems.IndexOf(pkgStreamName) > -1)
+            if (PackageItems.IndexOf(pkgStreamName) > -1)
             {
-                Parameter param = this.PackageItems[pkgStreamName].Package.Parameters.Add(name, type);
+                Parameter param = PackageItems[pkgStreamName].Package.Parameters.Add(name, type);
                 param.Required = required;
                 param.Sensitive = sensitive;
                 param.Value = value;
@@ -473,7 +472,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(!string.IsNullOrEmpty(name), @"The parameter name should not be nullable.");
 
-            this.Parameters.Remove(name);
+            Parameters.Remove(name);
         }
 
         /// <summary>
@@ -484,7 +483,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(index > -1, @"The parameter index must be greater than or equal to 0.");
 
-            this.Parameters.RemoveAt(index);
+            Parameters.RemoveAt(index);
         }
 
         /// <summary>
@@ -495,7 +494,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(File.Exists(filename), @"The specified file path does not exist.");
 
-            this.m_project = Project.OpenProject(filename);
+            m_project = Project.OpenProject(filename);
         }
 
         /// <summary>
@@ -514,7 +513,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(Stream.Null != stream, @"The specified stream should not be nullable.");
 
-            this.m_project = Project.OpenProject(stream);
+            m_project = Project.OpenProject(stream);
         }
 
         /// <summary>
@@ -524,7 +523,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public void SaveTo(string filename)
         {
             Debug.Assert(!string.IsNullOrEmpty(filename), @"The specified file path should not be nullable.");
-            this.Project.SaveTo(filename);
+            Project.SaveTo(filename);
         }
 
         /// <summary>
@@ -535,7 +534,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(Stream.Null != stream, @"The specified stream should not be nullable.");
 
-            this.Project.SaveTo(stream);
+            Project.SaveTo(stream);
         }
 
         /// <summary>
@@ -546,7 +545,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(!string.IsNullOrEmpty(filename), @"The specified file path should not be nullable.");
 
-            this.Project.SaveAs(filename);
+            Project.SaveAs(filename);
         }
 
         /// <summary>
@@ -557,7 +556,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             Debug.Assert(Stream.Null != stream, @"The specified stream should not be nullable.");
 
-            this.Project.SaveAs(stream);
+            Project.SaveAs(stream);
         }
 
         /// <summary>
@@ -565,7 +564,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         /// </summary>
         public void Save()
         {
-            this.Project.Save();
+            Project.Save();
         }
         #endregion
     }
@@ -648,7 +647,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.DestConn = destconn;
 
             //Add this package in project
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -700,7 +699,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.Dest.Table = desttable;
 
             //add this package in project
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -754,7 +753,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.Dest.Table = desttable;
 
             //add this package in project
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -780,7 +779,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.Dest.Overwrite = true;
             package.Dest.DefineColumnsInCM();
 
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -804,7 +803,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.DestConn.SetConnectionString(destserver, destdb);
             package.Dest.Table = desttable;
 
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
     }
 
@@ -888,7 +887,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.DestConn = destconn;
 
             //Add this package in project
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -948,7 +947,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.Dest.Table = desttable;
 
             //add this package in project
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -1008,7 +1007,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.Dest.Table = desttable;
 
             //add this package in project
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -1041,7 +1040,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.Dest.Overwrite = true;
             package.Dest.DefineColumnsInCM();
 
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
 
         /// <summary>
@@ -1072,7 +1071,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.DestConn.SetConnectionString(destserver, destdb);
             package.Dest.Table = desttable;
 
-            return this.AddPackage(package);
+            return AddPackage(package);
         }
     }
 
@@ -1129,7 +1128,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             package.Connection = pkgCM;
             package.ExecOutOfProcess = execOutOfProc;
 
-            return this.AddPackage(package.Package);
+            return AddPackage(package.Package);
         }
         #endregion
     }
