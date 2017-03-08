@@ -54,6 +54,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\EzAPI.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -130,11 +131,11 @@
     <Compile Include="EzConnections.cs" />
     <Compile Include="EzComponents.cs" />
     <Compile Include="EzExecutables.cs" />
+    <Compile Include="EzHelpers.cs" />
     <Compile Include="EzProject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
@@ -153,6 +154,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -160,4 +163,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+
+  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release' ">
+  <!-- package with NuGet -->
+    <Exec WorkingDirectory="$(BaseDir)" Command="nuget pack -OutputDirectory $(OutDir) -Prop Configuration=$(Configuration);TargetPath=$(OutDir)$(AssemblyName)$(TargetExt)" />
+  </Target>
+
 </Project>
