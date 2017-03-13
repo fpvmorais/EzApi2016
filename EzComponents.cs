@@ -1102,7 +1102,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}")]
+    [CompID("Microsoft.FlatFileSource")]
     public class EzFlatFileSource : EzAdapter
     {
         public EzFlatFileSource(EzDataFlow dataFlow) : base(dataFlow)	{ }
