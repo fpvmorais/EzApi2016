@@ -1449,7 +1449,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}")]
+    [CompID("Microsoft.Sort")]
     public class EzSortTransform : EzComponent
     {
         public EzSortTransform(EzDataFlow dataFlow) : base(dataFlow) { }
