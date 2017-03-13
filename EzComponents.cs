@@ -2620,7 +2620,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{36E0E750-2510-4776-AA6E-17EAE84FD63E}")]
+    [CompID("Microsoft.Merge")]
     public class EzMerge: EzUnionAndMergeBase
     {
         public EzMerge(EzDataFlow dataFlow) : base(dataFlow) { }
