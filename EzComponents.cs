@@ -1618,7 +1618,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public IEnumerator GetEnumerator() { return MapIDs.GetEnumerator(); }
     }
 
-    [CompID("{671046B0-AA63-4C9F-90E4-C06E0B710CE3}")]
+    [CompID("Microsoft.Lookup")]
     public class EzLookup : EzComponent
     {
         public EzLookup(EzDataFlow dataFlow) : base(dataFlow) { }
