@@ -2627,7 +2627,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public EzMerge(EzDataFlow parent, IDTSComponentMetaData100 meta) : base(parent, meta) { }
     }
 
-    [CompID("{B594E9A8-4351-4939-891C-CFE1AB93E925}")]
+    [CompID("Microsoft.UnionAll")]
     public class EzUnionAll : EzUnionAndMergeBase
     {
         public EzUnionAll(EzDataFlow dataFlow) : base(dataFlow) { }
