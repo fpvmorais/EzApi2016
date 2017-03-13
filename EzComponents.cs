@@ -1126,7 +1126,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}")]
+    [CompID("Microsoft.FlatFileDestination")]
     public class EzFlatFileDestination : EzAdapter
     {
         public EzFlatFileDestination(EzDataFlow dataFlow) : base(dataFlow)	{ }
