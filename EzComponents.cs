@@ -1874,7 +1874,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{BF818E79-2C1C-410D-ADEA-B2D1A04FED01}")]
+    [CompID("Microsoft.Cache")]
     public class EzCacheTransform : EzComponent
     {
         public EzCacheTransform(EzDataFlow dataFlow) : base(dataFlow) { }
