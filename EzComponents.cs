@@ -2927,7 +2927,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         FixedAttribute = 4
     }
 
-    [CompID("{25BBB0C5-369B-4303-B3DF-D0DC741DEE58}")]
+    [CompID("Microsoft.SCD")]
     public class EzSCD : EzAdapter
     {
         public EzSCD(EzDataFlow dataFlow) : base(dataFlow) { }
