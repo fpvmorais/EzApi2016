@@ -2427,7 +2427,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{8C084929-27D1-479F-9641-ABB7CDADF1AC}")]
+    [CompID("Microsoft.ExcelSource")]
     public class EzExcelSource : EzAdapter
     {
         public EzExcelSource(EzDataFlow dataFlow) : base(dataFlow) { }
