@@ -1317,10 +1317,10 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{EC139FBC-694E-490B-8EA7-35690FB0F445}")]
+    [CompID("Microsoft.Multicast")]
     public class EzMultiCast : EzComponent
     {
-        public static string CompID { get { return "{EC139FBC-694E-490B-8EA7-35690FB0F445}"; } }
+        public static string CompID { get { return "Microsoft.Multicast"; } }
         public EzMultiCast(EzDataFlow dataFlow) : base(dataFlow)	{ }        
         public EzMultiCast(EzDataFlow parent, IDTSComponentMetaData100 meta) : base(parent, meta) { }  
     }
