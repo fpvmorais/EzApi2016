@@ -1542,7 +1542,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{93FFEC66-CBC8-4C7F-9C6A-CB1C17A7567D}")]
+    [CompID("Microsoft.OLEDBCommand")]
     public class EzOleDbCommand : EzAdapter
     {
         public EzOleDbCommand(EzDataFlow dataFlow) : base(dataFlow) { }
