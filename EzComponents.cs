@@ -2090,7 +2090,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{5B201335-B360-485C-BB93-75C34E09B3D3}")]
+    [CompID("Microsoft.Aggregate")]
     public class EzAggregate : EzComponent
     {
         public EzAggregate(EzDataFlow dataFlow) : base(dataFlow) { }
