@@ -1940,7 +1940,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}")]
+    [CompID("Microsoft.DataConvert")]
     public class EzDataConvert : EzComponent
     {
         public EzDataConvert(EzDataFlow dataFlow) : base(dataFlow) { }
