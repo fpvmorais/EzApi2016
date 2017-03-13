@@ -2999,7 +2999,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{F452EAF3-5EF0-43F1-8067-09DDF0BC6316}")]
+    [CompID("Microsoft.SQLServerDestination")]
     public class EzSqlDestination: EzAdapter
     {
         public EzSqlDestination(EzDataFlow dataFlow) : base(dataFlow) { }
