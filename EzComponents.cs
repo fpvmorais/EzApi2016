@@ -2440,7 +2440,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}")]
+    [CompID("Microsoft.ExcelDestination")]
     public class EzExcelDest : EzAdapter
     {
         public EzExcelDest(EzDataFlow dataFlow) : base(dataFlow) { }
