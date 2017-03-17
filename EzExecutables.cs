@@ -654,6 +654,11 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             get { return (m_exec as Package).EnableConfigurations; }
             set { (m_exec as Package).EnableConfigurations = value; }
         }
+        public bool DelayValidation
+        {
+            get { return (m_exec as Package).DelayValidation; }
+            set { (m_exec as Package).DelayValidation = value; }
+        }
     }
 
     public class EzExpressionIndexer
