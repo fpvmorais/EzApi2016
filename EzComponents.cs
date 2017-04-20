@@ -1286,7 +1286,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
+    [CompID("Microsoft.ADONETDestination")]
     public class EzAdoNetDestination : EzAdapter
     {
         public EzAdoNetDestination(EzDataFlow dataFlow) : base(dataFlow) { }
