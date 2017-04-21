@@ -543,7 +543,13 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         {
             m_meta.OutputCollection[outputIndex].IsSorted = IsSorted;
         }
-        
+
+        public void SetOutputColumnErrorRowDisposition(string columnName, DTSRowDisposition propertyValue)
+        {
+            IDTSOutput100 output = m_meta.OutputCollection[0];
+            IDTSOutputColumn100 outputColumn = output.OutputColumnCollection[columnName];
+            outputColumn.ErrorRowDisposition = propertyValue;
+        }
         public void SetOutputColumnProperty(int outputIndex, string columnName, string propertyName, object propertyValue, bool initMeta)
         {
             if (!OutputColumnExists(outputIndex, columnName))
