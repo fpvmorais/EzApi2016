@@ -852,7 +852,13 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             get { return (SqlStatementSourceType)host.Properties["SqlStatementSourceType"].GetValue(host); }
             set { host.Properties["SqlStatementSourceType"].SetValue(host, value); }
         }
-    
+
+        //Different names between property and gui
+        public bool IsQueryStoredProcedure
+        {
+            get { return (bool)host.Properties["IsStoredProcedure"].GetValue(host); }
+            set { host.Properties["IsStoredProcedure"].SetValue(host, value); }
+        }
 
         public string SqlStatementSource
         {
