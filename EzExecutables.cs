@@ -838,11 +838,12 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
                 {
                     throw new ArgumentNullException("Connection value");
                 }
-                if (value.CM.CreationName != "OLEDB")
-                {
-                    throw new IncorrectAssignException(string.Format("Cannot assign {0} connection to EzExecSqlTask", value.CM.CreationName));
-                }
-                (host.InnerObject as ExecuteSQLTask).Connection = value.Name;
+                //if (value.CM.CreationName != "OLEDB")
+                //{
+                //    throw new IncorrectAssignException(string.Format("Cannot assign {0} connection to EzExecSqlTask", value.CM.CreationName));
+                //}
+                //(host.InnerObject as ExecuteSQLTask).Connection = value.Name;
+                host.Properties["Connection"].SetValue(host, value.Name);
                 m_connection = value;
             }
         }
