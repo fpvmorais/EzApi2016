@@ -31,6 +31,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         protected EzProject m_parentProject;
         protected string m_streamName;
         protected EzPackage m_parent;
+
         public static implicit operator ConnectionManager(EzConnectionManager c) 
         {
             if (c == null)
@@ -206,6 +207,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public string StreamName { get { return m_streamName; } }
         public DTSProtectionLevel ProtectionLevel { get { return m_conn.ProtectionLevel; } }
         public bool DelayValidation { get { return m_conn.DelayValidation; } set { m_conn.DelayValidation = value; } }
+
         public string ConnectionString 
         { 
             get { return m_conn.ConnectionString; } 
@@ -218,6 +220,12 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
                     Parent.ReinitializeMetaData();
             } 
         }
+
+        public void SetExpression(string property, string expression)
+        {
+            m_conn.Properties[property].SetExpression(m_conn, expression);
+        }
+
 
         public static bool CompareConnectionStrings(string conn1, string conn2)
         {
