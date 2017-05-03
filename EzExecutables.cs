@@ -401,6 +401,16 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
     {
         public EzSequence(EzContainer parent, DtsContainer c) : base(parent, c) { }
         public EzSequence(EzContainer parent) : base(parent) { RecreateExecutables(); }
+
+        private DtsProperties props
+        {
+            get { return (m_exec as Sequence).Properties; }
+        }
+
+        public void SetExpression(string property, string expression)
+        {
+            props[property].SetExpression(m_exec,expression);
+        }
     }
 
     // Represents the seven different types of For Each enumerators
