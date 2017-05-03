@@ -808,6 +808,11 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
                 m_connection = value;
             }
         }
+
+        public IDTSParameterAssignments ParameterAssignments
+        {
+            get { return (host.InnerObject as IDTSExecutePackage100).ParameterAssignments; }
+        }
     }
 
 
