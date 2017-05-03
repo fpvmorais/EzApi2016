@@ -722,6 +722,11 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public LogEntryInfos LogEntryInfos {get { return host.LogEntryInfos; } }
         public Variables Variables { get { return host.Variables; } }
         public bool Disable { get { return host.Disable; } set { host.Disable = value; } }
+        public void SetExpression(string property, string expression)
+        {
+            host.Properties[property].SetExpression(host, expression);
+        }
+
         public EzExpressionIndexer Expression 
         { 
             get 
