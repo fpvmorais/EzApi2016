@@ -764,6 +764,12 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             set { host.Properties["ExecuteOutOfProcess"].SetValue(host, value); }
         }
 
+        public bool UseProjectReference
+        {
+            get { return (bool)host.Properties["UseProjectReference"].GetValue(host); }
+            set { host.Properties["UseProjectReference"].SetValue(host, value); }
+        }
+
         public string PackageName
         {
             get { return (string)host.Properties["PackageName"].GetValue(host); }
