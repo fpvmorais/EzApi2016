@@ -669,6 +669,11 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             get { return (m_exec as Package).DelayValidation; }
             set { (m_exec as Package).DelayValidation = value; }
         }
+
+        public DtsEventHandlers EventHandlers
+        {
+            get { return (m_exec as Package).EventHandlers; }
+        }
     }
 
     public class EzExpressionIndexer
