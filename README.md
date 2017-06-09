@@ -10,6 +10,10 @@ The preferred way is to [Nuget](https://www.nuget.org/packages/EzApi/)
 
 Alternatively you can compile include the output `EzApi.dll` on your project, or include this project directly in your solution.
 
+## Website
+
+[http://fpvmorais.github.io/EzApi2016](http://fpvmorais.github.io/EzApi2016)
+
 ## Contributing
 
 1. Fork it!
@@ -26,7 +30,7 @@ Credits are for Microsoft =)
 
 The project inherits the Microsoft license: 
 
-Copyright © Microsoft Corporation.  All Rights Reserved.
+Copyright Â© Microsoft Corporation.  All Rights Reserved.
 
 This code released under the terms of the 
 
