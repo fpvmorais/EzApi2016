@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Linq;
 
 namespace Microsoft.SqlServer.SSIS.EzAPI
 {
@@ -994,16 +995,25 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
                 LinkInputToOutput(colName);
 
             virtualInput = input.GetVirtualInput();
+           
+            List<IDTSExternalMetadataColumn100> list = new List<IDTSExternalMetadataColumn100>();
+
+            for(int i = 0; i < extMetadataColumns.Count; i++)
+            {
+                list.Add(extMetadataColumns[i]);
+            }
+
             foreach (IDTSVirtualInputColumn100 virtualInputColumn in virtualInput.VirtualInputColumnCollection)
             {
                 if (ExternalColumnExists(virtualInputColumn.Name))
                 {
-                    IDTSExternalMetadataColumn100 extMetadataColumn = extMetadataColumns[virtualInputColumn.Name];
+                    IDTSExternalMetadataColumn100 extMetadataColumn = list.Where(w => w.Name.Equals(virtualInputColumn.Name, StringComparison.InvariantCultureIgnoreCase))
+                                                                          .FirstOrDefault();
                     IDTSInputColumn100 inputColumn = input.InputColumnCollection.GetInputColumnByLineageID(virtualInputColumn.LineageID);
                     m_comp.MapInputColumn(input.ID, inputColumn.ID, extMetadataColumn.ID);
                 }
             }
-           
+
         }
     }
 
