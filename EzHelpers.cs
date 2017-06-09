@@ -42,6 +42,22 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
 
         /// <summary>
+        /// Extension method to easily add parameters bindings with direction to ExecSQLTask 
+        /// </summary>
+        /// <param name="binds"></param>
+        /// <param name="parameterName"></param>
+        /// <param name="dtsVariableName"></param>
+        /// <param name="dataType"></param>
+        public static void Add(this IDTSParameterBindings binds, ParameterDirections direction, string parameterName, string dtsVariableName, OleDBDataTypes dataType)
+        {
+            IDTSParameterBinding x = binds.Add();
+            x.ParameterName = parameterName;
+            x.DtsVariableName = dtsVariableName;
+            x.ParameterDirection = direction;
+            x.DataType = (int)dataType;
+        }
+
+        /// <summary>
         /// Extension method to easily add result bindings to ExecSQLTask 
         /// </summary>
         /// <param name="binds"></param>
