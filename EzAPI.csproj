@@ -59,71 +59,72 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.DataTransformationServices.Controls\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.DataTransformationServices.Controls.DLL</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=13.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.SqlServer.ConnectionInfo\13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.DataProfilingTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Tasks\Microsoft.SqlServer.DataProfilingTask.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Diagnostics.STrace, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.SqlServer.Diagnostics.STrace\13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.Diagnostics.STrace.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Sql\DTS\src\bin\debug\i386\Microsoft.SqlServer.DTSRuntimeWrap.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
+      <HintPath>..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.SqlServer.DTSRuntimeWrap\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.DTSRuntimeWrap.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.ExecPackageTaskWrap, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Sql\DTS\src\bin\debug\i386\Microsoft.SqlServer.ExecPackageTaskWrap.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.ExecPackageTaskWrap, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.ExecPackageTaskWrap\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.ExecPackageTaskWrap.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.SqlServer.ExecProcTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Tasks\Microsoft.SqlServer.ExecProcTask.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.ExpressionTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Tasks\Microsoft.SqlServer.ExpressionTask.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.FileSystemTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Tasks\Microsoft.SqlServer.FileSystemTask.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.ManagedConnections, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Sql\DTS\src\bin\debug\i386\Microsoft.SqlServer.ManagedConnections.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.ManagedConnections, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.ManagedConnections\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.ManagedConnections.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Sql\DTS\src\bin\debug\i386\Microsoft.SqlServer.ManagedDTS.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.ManagedDTS\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.ManagedDTS.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=13.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="microsoft.sqlserver.pipelinehost, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\microsoft.sqlserver.pipelinehost.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.SqlServer.Management.Sdk.Sfc\13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SQLServer.PipelineHost, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.PipelineHost\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SQLServer.PipelineHost.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.ScriptTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Tasks\Microsoft.SqlServer.ScriptTask.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Smo, Version=13.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.SqlServer.Smo\13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.SQLTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86" />
     <Reference Include="Microsoft.SqlServer.TransferDatabasesTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Tasks\Microsoft.SqlServer.TransferDatabasesTask.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\110\DTS\PipelineComponents\Microsoft.SqlServer.TxScript.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.TxScript\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.TxScript.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.VSTAScriptingLib, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>True</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SqlServer.VSTAScriptingLib\v4.0_13.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.VSTAScriptingLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
