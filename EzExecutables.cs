@@ -732,6 +732,12 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             host.Properties[property].SetExpression(host, expression);
         }
 
+        public DTSTransactionOption TransactionOption 
+        {
+            get { return host.TransactionOption; }
+            set { host.TransactionOption = value; }
+        }
+
         public EzExpressionIndexer Expression 
         { 
             get 
