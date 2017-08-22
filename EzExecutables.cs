@@ -938,9 +938,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public EzDataFlow(EzContainer parent) : base(parent) { }
         public EzDataFlow(EzContainer parent, TaskHost pipe) : base(parent, pipe) { }
         
-        public MainPipe DataFlow { get { return (MainPipe)host.InnerObject;  } }
-
-
+        public MainPipeClass DataFlow { get { return (MainPipeClass)host.InnerObject;  } }
+        
         public void DeleteComponent(int ID)
         {
             for (int i = 0; i < Components.Count; i++)
