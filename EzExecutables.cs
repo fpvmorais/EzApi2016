@@ -350,7 +350,13 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public Executables Executables { get { return m_execs; } }
         public Variables Variables { get { return host.Variables; } }
         public bool Disable { get { return host.Disable; } set { host.Disable = value; } }
-        
+
+        public bool DelayValidation
+        {
+            get { return host.DelayValidation; }
+            set { host.DelayValidation = value; }
+        }
+
         public void ReinitializeMetaData()
         {
             foreach (EzExecutable e in EzExecs)
@@ -664,12 +670,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             get { return (m_exec as Package).EnableConfigurations; }
             set { (m_exec as Package).EnableConfigurations = value; }
         }
-        public bool DelayValidation
-        {
-            get { return (m_exec as Package).DelayValidation; }
-            set { (m_exec as Package).DelayValidation = value; }
-        }
-
+       
         public DtsEventHandlers EventHandlers
         {
             get { return (m_exec as Package).EventHandlers; }
@@ -730,6 +731,12 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public void SetExpression(string property, string expression)
         {
             host.Properties[property].SetExpression(host, expression);
+        }
+
+        public bool DelayValidation
+        {
+            get { return host.DelayValidation; }
+            set { host.DelayValidation = value; }
         }
 
         public DTSTransactionOption TransactionOption 
