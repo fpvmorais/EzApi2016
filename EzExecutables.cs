@@ -938,8 +938,14 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         public EzDataFlow(EzContainer parent) : base(parent) { }
         public EzDataFlow(EzContainer parent, TaskHost pipe) : base(parent, pipe) { }
         
-        public MainPipeClass DataFlow { get { return (MainPipeClass)host.InnerObject;  } }
-        
+        public MainPipe DataFlow { get { return (MainPipe)host.InnerObject;  } }
+
+        public bool AutoAdjustBufferSize
+        {
+            get { return ((IDTSPipeline130)DataFlow).AutoAdjustBufferSize; }
+            set { ((IDTSPipeline130)DataFlow).AutoAdjustBufferSize = value; }
+        }
+
         public void DeleteComponent(int ID)
         {
             for (int i = 0; i < Components.Count; i++)
