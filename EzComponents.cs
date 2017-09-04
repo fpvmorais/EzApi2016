@@ -1,4 +1,4 @@
-// Copyright © Microsoft Corporation.  All Rights Reserved.
+// Copyright Â© Microsoft Corporation.  All Rights Reserved.
 // This code released under the terms of the 
 // Microsoft Public License (MS-PL, http://opensource.org/licenses/ms-pl.html.)
 
@@ -2226,7 +2226,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript")]
+    [CompID("Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
     public class EzScript : EzComponent
     {
         public const string VisualBasic = "VisualBasic";
