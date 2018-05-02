@@ -1267,7 +1267,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
+    [CompID("Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
     public class EzAdoNetSource : EzAdapter
     {
         public EzAdoNetSource(EzDataFlow dataFlow) : base(dataFlow) { }
@@ -2226,7 +2226,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         }
     }
 
-    [CompID("Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
+    [CompID("Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
     public class EzScript : EzComponent
     {
         public const string VisualBasic = "VisualBasic";
@@ -2407,7 +2407,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
         DataFromVariable = 2
     }
 
-    [CompID("Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter, Microsoft.SqlServer.XmlSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
+    [CompID("Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter, Microsoft.SqlServer.XmlSrc, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91")]
     public class EzXMLSource : EzComponent
     {
         public EzXMLSource(EzDataFlow dataFlow) : base(dataFlow) { }
