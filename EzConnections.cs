@@ -508,8 +508,8 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             {
                 if (Columns.Count > 0)
                     Columns[Columns.Count - 1].ColumnDelimiter = value;
-                else
-                    m_conn.Properties["RowDelimiter"].SetValue(m_conn, value);
+
+                m_conn.Properties["RowDelimiter"].SetValue(m_conn, value);
             }
         }
 
