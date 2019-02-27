@@ -876,9 +876,19 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             m_comp.MapInputColumn(m_meta.InputCollection[0].ID, InputCol(inputColName).ID, ExternalCol(externalColName).ID);
         }
 
-        public void UpmapColumn(string inputColName)
+        public void UnmapColumn(string inputColName)
         {
-            InputCol(inputColName).MappedColumnID = -1;
+            InputCol(inputColName).MappedColumnID = 0;
+            m_comp.MapInputColumn(m_meta.InputCollection[0].ID, InputCol(inputColName).ID, 0);
+        }
+
+        public void UnmapAllInputColumns()
+        {
+            foreach(IDTSInputColumn100 inputcol in m_meta.InputCollection[0].InputColumnCollection)
+            {
+                UnmapColumn(inputcol.Name);
+            }
+
         }
 
         public void MapOutputColumn(string outputColName, string externalColName)
