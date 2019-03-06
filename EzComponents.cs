@@ -558,7 +558,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             IDTSOutputColumn100 outputColumn = output.OutputColumnCollection[columnName];
             outputColumn.TruncationRowDisposition = propertyValue;
         }
-
+        
         public void SetOutputColumnProperty(int outputIndex, string columnName, string propertyName, object propertyValue, bool initMeta)
         {
             if (!OutputColumnExists(outputIndex, columnName))
@@ -1158,6 +1158,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             get { return (string)Meta.CustomPropertyCollection["FileNameColumnName"].Value; }
             set { Comp.SetComponentProperty("FileNameColumnName", value); }
         }
+
     }
 
     [CompID("Microsoft.FlatFileDestination")]
