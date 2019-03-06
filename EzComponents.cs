@@ -1158,6 +1158,122 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
             get { return (string)Meta.CustomPropertyCollection["FileNameColumnName"].Value; }
             set { Comp.SetComponentProperty("FileNameColumnName", value); }
         }
+
+        public void DefineColumnsInCM(FlatFileFormat format = FlatFileFormat.Delimited, bool reinitall = false)
+        {
+            string strline = string.Empty;
+            string[] strVal = null;
+            string[] strSamples = null;
+            int intCount = 0;
+            List<int> ColumnsLength = new List<int>();
+
+            if (Connection == null)
+                return;
+            ValidateExternalMetadata = false;
+            EzFlatFileCM cm = Connection as EzFlatFileCM;
+
+            using (System.IO.StreamReader csStreamReader = new System.IO.StreamReader(m_connection.ConnectionString))
+            {
+                while (csStreamReader.EndOfStream == false)
+                {
+                    strline = csStreamReader.ReadLine();
+
+                    if (strVal == null)
+                    {
+                        strVal = strline.Split(cm.ColumnDelimiter.ToCharArray());
+
+                        int intColumnLength = 0;
+                        while (intColumnLength <= strVal.Length - 1)
+                        {
+                            intColumnLength = intColumnLength + 1;
+                            ColumnsLength.Add(50);
+
+                        }
+
+                    }
+                    else if (intCount <= 100)
+                    {
+
+                        strSamples = null;
+                        strSamples = strline.Split(cm.ColumnDelimiter.ToCharArray());
+
+                        intCount = intCount + 1;
+
+                        int intColumnLength = 0;
+                        while (intColumnLength <= ColumnsLength.Count - 1)
+                        {
+
+                            if (strSamples[intColumnLength].Length > ColumnsLength[intColumnLength])
+                            {
+                                ColumnsLength[intColumnLength] = strSamples[intColumnLength].Length;
+                            }
+
+                            intColumnLength = intColumnLength + 1;
+
+
+                        }
+
+                    }
+                    else
+                        break;
+                }
+            }
+
+            int intLength = 0;
+
+            foreach (string strColumn in strVal)
+            {
+                IDTSConnectionManagerFlatFileColumn100 fc = null;
+                if (fc == null)
+                    fc = cm.Columns.Add();
+                fc.DataType = DataType.DT_STR;
+                fc.DataPrecision = 0;
+                fc.DataScale = 0;
+                fc.ColumnWidth = ColumnsLength[intLength];
+                fc.MaximumWidth = ColumnsLength[intLength];
+                (fc as IDTSName100).Name = strColumn;
+                intLength = intLength + 1;
+            }
+
+            cm.ColumnNamesInFirstDataRow = true;
+            cm.RowDelimiter = "\r\n";
+
+            switch (format)
+            {
+                case FlatFileFormat.Delimited:
+                    cm.ColumnType = FlatFileColumnType.Delimited;
+                    cm.ColumnDelimiter = ",";
+                    break;
+                case FlatFileFormat.FixedWidth:
+                    cm.ColumnType = FlatFileColumnType.FixedWidth;
+                    cm.ColumnDelimiter = null;
+                    break;
+                case FlatFileFormat.Mixed: // "FixedWidth with row delimiters"
+                    cm.ColumnType = FlatFileColumnType.FixedWidth;
+                    cm.ColumnDelimiter = null;
+
+                    IDTSConnectionManagerFlatFileColumn100 fc = cm.Columns.Add();
+                    fc.DataType = DataType.DT_WSTR;
+                    fc.ColumnType = FlatFileColumnType.Delimited.ToString();
+                    fc.ColumnDelimiter = "\r\n";
+                    fc.ColumnWidth = 0;
+                    (fc as IDTSName100).Name = "Row delimiter column";
+                    break;
+                case FlatFileFormat.RaggedRight:
+                    cm.ColumnType = FlatFileColumnType.FixedWidth;
+                    cm.ColumnDelimiter = null;
+
+                    // update the last column to be delimited
+                    cm.Columns[cm.Columns.Count - 1].ColumnType = FlatFileColumnType.Delimited.ToString();
+                    cm.Columns[cm.Columns.Count - 1].ColumnDelimiter = "\r\n";
+                    break;
+            }
+
+            if (reinitall)
+                cm.Parent.ReinitializeMetaData();
+            else
+                ReinitializeMetaData();
+        }
     }
 
     [CompID("Microsoft.FlatFileDestination")]
