@@ -676,7 +676,7 @@ namespace Microsoft.SqlServer.SSIS.EzAPI
                     break;
             }
 
-            if (reinitall)
+            if (reinitmetadata)
                 this.Parent.ReinitializeMetaData();
          
         }
