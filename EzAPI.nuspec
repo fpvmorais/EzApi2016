@@ -7,7 +7,7 @@
         <authors>fpvmorais</authors>
         <owners>fpvmorais</owners>
         <projectUrl>https://github.com/fpvmorais/EzApi2016</projectUrl>
-        <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
+        <license type="file">License.md</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Fork of EzApi http://sqlsrvintegrationsrv.codeplex.com/releases/view/21238 adapted for SQL Server 2016 </description>
         <releaseNotes>First release</releaseNotes>
@@ -17,5 +17,6 @@
     <files>
         <file src="bin\Release\EzAPI.dll" target="lib\net40\EzAPI.dll" />
         <file src="bin\Release\EzAPI.xml" target="lib\net40\EzAPI.xml" />
+        <file src="License\License.md" target="License.md" />
     </files>
 </package>
